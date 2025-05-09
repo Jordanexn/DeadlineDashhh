@@ -196,7 +196,9 @@ body {
   margin-bottom: 2rem;
 }
 
-.tabs {
+.dashboard-tabs,
+.tabs,
+.projects-tabs {
   display: flex;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 1.5rem;
@@ -208,6 +210,7 @@ body {
   font-weight: 500;
   color: var(--text-light);
   border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
 }
 
 .tab.active {
@@ -215,6 +218,247 @@ body {
   border-bottom: 2px solid var(--primary-color);
 }
 
+.tab:hover:not(.active) {
+  color: var(--text-dark);
+  border-bottom-color: var(--border-color);
+}
+
+.dashboard-view {
+  display: none;
+}
+
+.dashboard-view.active {
+  display: block;
+}
+
+/* Calendar View */
+.calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.calendar-header h2 {
+  margin: 0 1.5rem;
+  font-size: 1.5rem;
+}
+
+.btn-icon {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--text-light);
+  transition: all 0.2s;
+}
+
+.btn-icon:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.calendar {
+  background-color: var(--bg-white);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: var(--primary-light);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.calendar-weekdays div {
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 1px;
+  background-color: var(--border-color);
+}
+
+.calendar-day {
+  background-color: var(--bg-white);
+  padding: 0.5rem;
+  min-height: 100px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.calendar-day:hover {
+  background-color: var(--primary-light);
+}
+
+.calendar-day.other-month {
+  background-color: #f8f8f8;
+  color: var(--text-light);
+}
+
+.calendar-day.today {
+  background-color: #f0f9ff;
+}
+
+.calendar-day.selected {
+  background-color: var(--primary-light);
+  border: 2px solid var(--primary-color);
+}
+
+.day-number {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.today .day-number {
+  background-color: var(--primary-color);
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-marker {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
+.day-marker.task {
+  background-color: var(--primary-color);
+}
+
+.day-marker.deadline {
+  background-color: var(--warning-color);
+}
+
+.day-marker.overdue {
+  background-color: var(--error-color);
+}
+
+.calendar-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+}
+
+.legend-color {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.legend-text {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+.day-detail {
+  display: none;
+  background-color: var(--bg-white);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.day-detail.active {
+  display: block;
+}
+
+.day-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.day-detail-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: color 0.2s;
+}
+
+.btn-close:hover {
+  color: var(--error-color);
+}
+
+.day-task {
+  padding: 1rem;
+  border-left: 3px solid var(--primary-color);
+  background-color: var(--bg-light);
+  border-radius: 0 0.25rem 0.25rem 0;
+  margin-bottom: 0.75rem;
+}
+
+.day-task.overdue {
+  border-left-color: var(--error-color);
+}
+
+.day-task-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.day-task-project {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.day-task-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.no-tasks-message {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-light);
+}
+
+/* Projects View */
 .project-card {
   background-color: var(--bg-white);
   border-radius: 0.5rem;
@@ -379,6 +623,50 @@ body {
   color: white;
 }
 
+/* Error alert and loading indicator */
+.error-alert {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--error-color);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  transform: translateX(110%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.error-alert.show {
+  transform: translateX(0);
+}
+
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  color: var(--text-light);
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid var(--primary-light);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
   .header-content {
@@ -413,5 +701,20 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+  
+  .calendar-days {
+    grid-auto-rows: minmax(80px, auto);
+  }
+  
+  .calendar-day {
+    min-height: 80px;
+    padding: 0.25rem;
+  }
+  
+  .calendar-legend {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
 }
