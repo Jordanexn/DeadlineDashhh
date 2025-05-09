@@ -5,7 +5,7 @@ const CTASection = () => {
   return (
     <section className="bg-primary-600 text-white rounded-xl p-8 text-center">
       <h2 className="text-2xl font-bold mb-4">Ready to End Procrastination?</h2>
-      <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
+      <p className="text-primary-50 mb-6 max-w-2xl mx-auto">
         Don't wait until the last minute. Turn your assignments into manageable daily tasks and stay ahead of deadlines.
       </p>
       <Link href="/new-project">

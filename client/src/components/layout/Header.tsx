@@ -17,30 +17,30 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-2">
             <Link href="/">
-              <a className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2">
                 <Clock className="h-8 w-8 text-primary" />
                 <span className="text-xl font-bold text-primary">DeadlineDash</span>
-              </a>
+              </div>
             </Link>
           </div>
           
           <nav className="hidden md:flex space-x-8">
             <Link href="/dashboard">
-              <a className={`px-3 py-2 text-sm font-medium ${location === '/dashboard' ? 'text-primary' : 'text-gray-700 hover:text-primary'}`}>
+              <div className={`px-3 py-2 text-sm font-medium ${location === '/dashboard' ? 'text-primary' : 'text-gray-700 hover:text-primary'}`}>
                 Dashboard
-              </a>
+              </div>
             </Link>
             <Link href="/new-project">
-              <a className={`px-3 py-2 text-sm font-medium ${location === '/new-project' ? 'text-primary' : 'text-gray-700 hover:text-primary'}`}>
+              <div className={`px-3 py-2 text-sm font-medium ${location === '/new-project' ? 'text-primary' : 'text-gray-700 hover:text-primary'}`}>
                 New Project
-              </a>
+              </div>
             </Link>
-            <a href="#" className="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium">
+            <div className="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium cursor-pointer">
               Analytics
-            </a>
-            <a href="#" className="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium">
+            </div>
+            <div className="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium cursor-pointer">
               Help
-            </a>
+            </div>
           </nav>
           
           <div className="flex items-center">
@@ -78,7 +78,7 @@ const Header = () => {
           <div className="md:hidden">
             <div className="pt-2 pb-4 space-y-1">
               <Link href="/dashboard">
-                <a 
+                <div 
                   className={`block px-3 py-2 rounded-md text-base font-medium ${
                     location === '/dashboard' 
                       ? 'bg-primary-50 text-primary' 
@@ -86,10 +86,10 @@ const Header = () => {
                   }`}
                 >
                   Dashboard
-                </a>
+                </div>
               </Link>
               <Link href="/new-project">
-                <a 
+                <div
                   className={`block px-3 py-2 rounded-md text-base font-medium ${
                     location === '/new-project' 
                       ? 'bg-primary-50 text-primary' 
@@ -97,20 +97,18 @@ const Header = () => {
                   }`}
                 >
                   New Project
-                </a>
+                </div>
               </Link>
-              <a 
-                href="#" 
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary"
+              <div 
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary cursor-pointer"
               >
                 Analytics
-              </a>
-              <a 
-                href="#" 
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary"
+              </div>
+              <div 
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary cursor-pointer"
               >
                 Help
-              </a>
+              </div>
             </div>
           </div>
         )}
