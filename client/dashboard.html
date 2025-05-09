@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Dashboard - Deadline Dash</title>
+    <meta name="description" content="View and manage your projects to beat procrastination. Track tasks, deadlines, and progress." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <a href="/" class="logo">
+            <h1>DeadlineDash</h1>
+          </a>
+          <nav class="main-nav">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/dashboard" class="active">Dashboard</a></li>
+              <li><a href="/new-project" class="btn-primary">New Project</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <div class="container">
+        <div class="dashboard-header">
+          <h1>Your Projects</h1>
+          <a href="/new-project" class="btn-primary">Create New Project</a>
+        </div>
+        
+        <div class="tabs">
+          <div class="tab active" data-status="active">Active Projects</div>
+          <div class="tab" data-status="completed">Completed Projects</div>
+        </div>
+        
+        <div class="projects-container">
+          <!-- Projects will be loaded here by JavaScript -->
+          <div class="loading-indicator">
+            <div class="spinner"></div>
+            <p>Loading your projects...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 DeadlineDash. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="/js/main.js" type="module"></script>
+  </body>
+</html>

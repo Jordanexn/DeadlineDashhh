@@ -12,11 +12,75 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <a href="/" class="logo">
+            <h1>DeadlineDash</h1>
+          </a>
+          <nav class="main-nav">
+            <ul>
+              <li><a href="/" class="active">Home</a></li>
+              <li><a href="/dashboard">Dashboard</a></li>
+              <li><a href="/new-project" class="btn-primary">New Project</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1>Beat Procrastination, One Task at a Time</h1>
+            <p>Upload your assignment rubric, set a deadline, and we'll break it down into manageable daily tasks designed for your success.</p>
+            <a href="/new-project" class="btn-primary">Start a Project</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="container">
+          <h2>How It Works</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">📄</div>
+              <h3>Upload Your Rubric</h3>
+              <p>Paste your assignment rubric or upload a document. Our AI analyzes the requirements.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">📅</div>
+              <h3>Set Your Schedule</h3>
+              <p>Tell us your availability and when the assignment is due. We'll create a realistic schedule.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">✓</div>
+              <h3>Track Your Progress</h3>
+              <p>Check off tasks as you complete them and stay on top of your deadlines.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="container">
+          <h2>Ready to defeat procrastination?</h2>
+          <p>Join thousands of students who are turning last-minute panic into planned success.</p>
+          <a href="/new-project" class="btn-primary">Get Started Now</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 DeadlineDash. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="/js/main.js" type="module"></script>
   </body>
 </html>

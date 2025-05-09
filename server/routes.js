@@ -1,4 +1,5 @@
 import { createServer } from "http";
+import express from "express";
 import { storage } from "./storage";
 import { 
   insertUserSchema, 
@@ -10,6 +11,8 @@ import {
 import { z } from "zod";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
+import path from "path";
+import fs from "fs";
 
 // Simple NLP functions for rubric analysis
 function analyzeRubric(text) {
@@ -370,6 +373,35 @@ export async function registerRoutes(app) {
     } catch (err) {
       handleZodError(err, res);
     }
+  });
+
+  // HTML page routes
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'client/index.html'));
+  });
+  
+  app.get('/dashboard', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'client/dashboard.html'));
+  });
+  
+  app.get('/new-project', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'client/new-project.html'));
+  });
+  
+  // Serve static files
+  app.use('/js', express.static(path.join(process.cwd(), 'client/js')));
+  app.use('/styles.css', express.static(path.join(process.cwd(), 'client/styles.css')));
+  
+  // Handle project detail page
+  app.get('/projects/:id', (req, res) => {
+    // In a real app, you'd validate if the project exists first
+    // For simplicity, we'll just serve the project detail page template
+    res.sendFile(path.join(process.cwd(), 'client/project-detail.html'));
+  });
+  
+  // 404 handler
+  app.use((req, res) => {
+    res.status(404).send('Page not found');
   });
 
   const httpServer = createServer(app);
